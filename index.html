@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>ZEED | Digital Identity</title>
+<meta name="description" content="ZEED kişisel dijital dünyası.">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ background:#080808;
+ color:#eee;
+ font-family:'Rajdhani',sans-serif;
+ overflow-x:hidden;
+}
+body:before{
+ content:"";
+ position:fixed;inset:0;
+ background:
+ radial-gradient(circle at 50% 20%,#9b111122,transparent 40%),
+ linear-gradient(#ffffff04 1px,transparent 1px),
+ linear-gradient(90deg,#ffffff04 1px,transparent 1px);
+ background-size:auto,45px 45px,45px 45px;
+ pointer-events:none;z-index:-1;
+}
+nav{
+ height:78px;padding:0 8%;
+ display:flex;align-items:center;
+ justify-content:space-between;
+ background:#080808ed;
+ border-bottom:1px solid #ffffff15;
+ position:sticky;top:0;z-index:10;
+ backdrop-filter:blur(15px);
+}
+.logo{
+ font-family:Orbitron;
+ font-size:25px;font-weight:900;
+ letter-spacing:6px;color:#e32636;
+ text-shadow:0 0 20px #e3263688;
+}
+nav a{
+ color:#aaa;text-decoration:none;
+ margin-left:22px;font-size:15px;
+ letter-spacing:2px;transition:.3s;
+}
+nav a:hover{color:#e32636}
+
+.hero{
+ min-height:90vh;
+ display:flex;align-items:center;
+ justify-content:center;text-align:center;
+ padding:50px 20px;
+}
+.small-title{
+ color:#e32636;
+ font-family:Orbitron;
+ font-size:12px;letter-spacing:7px;
+ margin-bottom:25px;
+}
+.hero h1{
+ font-family:Orbitron;
+ font-size:clamp(65px,14vw,130px);
+ font-weight:900;
+ letter-spacing:12px;
+ color:#eee;
+ text-shadow:0 0 30px #e3263655;
+ animation:glow 3s infinite alternate;
+}
+.hero h1 span{color:#e32636}
+@keyframes glow{
+ from{text-shadow:0 0 15px #e3263644}
+ to{text-shadow:0 0 45px #e32636aa}
+}
+.hero h2{
+ font-family:Orbitron;
+ color:#e32636;
+ letter-spacing:5px;
+ font-size:clamp(18px,4vw,30px);
+ margin:25px 0;
+}
+.hero p{
+ color:#aaa;font-size:20px;
+ letter-spacing:3px;
+}
+.line{
+ width:100px;height:2px;
+ background:#e32636;
+ margin:30px auto;
+ box-shadow:0 0 20px #e32636;
+}
+.button{
+ display:inline-block;
+ padding:15px 32px;
+ border:1px solid #e32636;
+ color:white;text-decoration:none;
+ font-family:Orbitron;
+ letter-spacing:3px;
+ transition:.3s;
+}
+.button:hover{
+ background:#e32636;
+ box-shadow:0 0 30px #e3263688;
+}
+section{
+ padding:100px 9%;
+ text-align:center;
+}
+.number{
+ font-family:Orbitron;
+ font-size:12px;
+ color:#e32636;
+ letter-spacing:6px;
+ margin-bottom:20px;
+}
+.heading{
+ font-family:Orbitron;
+ font-size:clamp(25px,5vw,42px);
+ letter-spacing:5px;
+}
+.heading span{color:#e32636}
+.description{
+ color:#aaa;
+ font-size:20px;
+ line-height:1.8;
+ max-width:700px;
+ margin:30px auto;
+}
+.profile{
+ max-width:750px;
+ margin:40px auto;
+ padding:40px 25px;
+ background:linear-gradient(135deg,#171717,#0a0a0a);
+ border:1px solid #ffffff18;
+ position:relative;
+}
+.profile:before{
+ content:"";
+ position:absolute;
+ left:0;top:0;
+ width:3px;height:100%;
+ background:#e32636;
+}
+.profile h3{
+ font-family:Orbitron;
+ color:#e32636;
+ font-size:23px;
+ margin-bottom:25px;
+ letter-spacing:3px;
+}
+.profile p{
+ color:#ccc;
+ font-size:19px;
+ line-height:1.9;
+}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+ gap:22px;margin-top:50px;
+}
+.card{
+ background:linear-gradient(145deg,#181818,#090909);
+ border:1px solid #ffffff17;
+ padding:40px 22px;
+ transition:.3s;
+}
+.card:hover{
+ transform:translateY(-8px);
+ border-color:#e32636;
+ box-shadow:0 10px 35px #e326361c;
+}
+.card .icon{
+ color:#e32636;
+ font-size:32px;
+ margin-bottom:20px;
+}
+.card h3{
+ font-family:Orbitron;
+ font-size:17px;
+ letter-spacing:2px;
+ margin-bottom:15px;
+}
+.card p{color:#999;font-size:17px}
+.contact{
+ max-width:650px;
+ margin:45px auto 0;
+ display:grid;gap:15px;
+}
+.contact a{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ text-decoration:none;
+ color:white;
+ background:linear-gradient(100deg,#171717,#0a0a0a);
+ border:1px solid #292929;
+ padding:22px 25px;
+ transition:.3s;
+}
+.contact a:hover{
+ border-color:#e32636;
+ transform:translateX(5px);
+ box-shadow:0 0 25px #e3263622;
+}
+.contact strong{
+ font-family:Orbitron;
+ letter-spacing:2px;
+}
+.contact span{color:#aaa;font-size:16px}
+footer{
+ padding:35px 15px;
+ text-align:center;
+ border-top:1px solid #ffffff15;
+ color:#777;
+ letter-spacing:3px;
+}
+footer b{color:#e32636}
+@media(max-width:600px){
+ nav{padding:0 5%;height:68px}
+ .logo{font-size:19px;letter-spacing:3px}
+ nav a{font-size:11px;margin-left:9px}
+ section{padding:75px 6%}
+ .hero h1{letter-spacing:5px}
+ .contact a{padding:18px}
+ .contact strong{font-size:13px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div class="logo">ZEED.</div>
+ <div>
+  <a href="#hakkimda">HAKKIMDA</a>
+  <a href="#projeler">PROJELER</a>
+  <a href="#iletisim">İLETİŞİM</a>
+ </div>
+</nav>
+
+<header class="hero">
+ <div>
+  <div class="small-title">WELCOME TO MY DIGITAL WORLD</div>
+  <h1>Z<span>E</span>ED</h1>
+  <h2>AM CANAVARI</h2>
+  <div class="line"></div>
+  <p>Kendi taşşağım. Kendi sanalım.</p>
+  <br><br>
+  <a class="button" href="#hakkimda">KEŞFET</a>
+ </div>
+</header>
+
+<section id="hakkimda">
+ <div class="number">01 — ABOUT ME</div>
+ <h2 class="heading">HAKK<span>IMDA</span></h2>
+
+ <div class="profile">
+  <h3>ZEED OF AM CANAVARI</h3>
+  <p>
+   Sıradan biri değilim.<br>
+   Kimsenin kopyası olmam.<br>
+   Kendi dünyamı kendim kurarım.<br>
+   Kendi yolum, kendi kurallarım.
+  </p>
+  <div class="line"></div>
+  <p style="color:#e32636;font-family:Orbitron;font-size:15px">
+   NO COPY. NO RULES. JUST ZEED.
+  </p>
+ </div>
+</section>
+
+<section id="projeler">
+ <div class="number">02 — MY UNIVERSE</div>
+ <h2 class="heading">DİJİTAL <span>DÜNYAM</span></h2>
+ <p class="description">
+  Fikirler, projeler ve geleceğe bırakılan dijital izler.
+ </p>
+
+ <div class="cards">
+  <div class="card">
+   <div class="icon">⌘</div>
+   <h3>CODING</h3>
+   <p>Yazılım ve teknoloji dünyası.</p>
+  </div>
+
+  <div class="card">
+   <div class="icon">◈</div>
+   <h3>PROJECTS</h3>
+   <p>Kendi fikirlerim ve çalışmalarım.</p>
+  </div>
+
+  <div class="card">
+   <div class="icon">⟁</div>
+   <h3>CREATIVE</h3>
+   <p>Hayal gücünün dijital hali.</p>
+  </div>
+ </div>
+</section>
+
+<section id="iletisim">
+ <div class="number">03 — CONNECTION</div>
+ <h2 class="heading">İLETİ<span>İŞİM</span></h2>
+ <p class="description">
+  Benimle bağlantı kur. Dijital dünyada buluşalım.
+ </p>
+
+ <div class="contact">
+  <a href="https://wa.me/905300994571" target="_blank">
+   <strong>◉ WHATSAPP</strong>
+   <span>+90 530 099 45 71 ↗</span>
+  </a>
+
+  <a href="https://t.me/tekdert" target="_blank">
+   <strong>➤ TELEGRAM</strong>
+   <span>@tekdert ↗</span>
+  </a>
+
+  <a href="https://www.tiktok.com/@shazdyweb" target="_blank">
+   <strong>♪ TIKTOK</strong>
+   <span>@shazdyweb ↗</span>
+  </a>
+ </div>
+</section>
+
+<footer>
+ © 2026 <b>ZEED</b> — MY WORLD. MY RULES.
+</footer>
+
+</body>
+</html>
